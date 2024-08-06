@@ -1,7 +1,7 @@
 magic
 tech sky130A
 magscale 1 2
-timestamp 1722898052
+timestamp 1722969768
 << obsli1 >>
 rect 4104 5159 561808 352809
 << obsm1 >>
@@ -3647,8 +3647,8 @@ port 645 nsew signal input
 string FIXED_BBOX 0 0 584000 704000
 string LEFclass BLOCK
 string LEFview TRUE
-string GDS_END 52860190
-string GDS_FILE /home/mayyaga2/hector_soc_dev/practice_soc/miai_ci2409_nbit_counter_with_disp/miai_ci2409_nbit_counter_with_disp/openlane/user_project_wrapper/runs/24_08_05_18_40/results/signoff/user_project_wrapper.magic.gds
-string GDS_START 51777722
+string GDS_END 52858002
+string GDS_FILE /home/mayyaga2/hector_soc_dev/practice_soc/miai_ci2409_nbit_counter_with_disp/miai_ci2409_nbit_counter_with_disp/openlane/user_project_wrapper/runs/24_08_06_14_36/results/signoff/user_project_wrapper.magic.gds
+string GDS_START 51775534
 << end >>
 

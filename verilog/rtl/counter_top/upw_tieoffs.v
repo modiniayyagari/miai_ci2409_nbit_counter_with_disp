@@ -14,8 +14,10 @@ module upw_tieoffs #(
 
 //MIAI: Ordering of the pins as per pin_order.cfg
 //out_en = OUTPUTS, INPUTs
+//OUTPUTs = 1'0;
+//INPUTs = 1'b1;
 
-assign out_en [NUM_INS-1:0] = {NUM_INS{1'b0}};
-assign out_en [NUM_IOS-1:NUM_INS] = {NUM_OUTS{1'b1}};
+assign out_en [NUM_INS-1:0] = {NUM_INS{1'b1}};
+assign out_en [NUM_IOS-1:NUM_INS] = {NUM_OUTS{1'b0}};
 
 endmodule
