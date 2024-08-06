@@ -82,41 +82,41 @@ module user_project_wrapper #(
 /* User project is instantiated  here   */
 /*--------------------------------------*/
 
-user_proj_example mprj (
-`ifdef USE_POWER_PINS
-	.vccd1(vccd1),	// User area 1 1.8V power
-	.vssd1(vssd1),	// User area 1 digital ground
-`endif
+localparam  UPW_TOP_NUM_BITS  = 3;
+localparam  UPW_TOP_NUM_BCDS  = (UPW_TOP_NUM_BITS > 3) ? 2 : 1;
+localparam  UPW_TOP_NUM_DISP  = UPW_TOP_NUM_BCDS;
 
-    .wb_clk_i(wb_clk_i),
-    .wb_rst_i(wb_rst_i),
+//MIAI: Since the HECTOR IP is already hardened, we need not pass the parameters while instantiating the IP.
+//Remember we are instantiating the gate-level netlist here.
+counter_top u_cnt_top_0 (
 
-    // MGMT SoC Wishbone Slave
+  `ifdef USE_POWER_PINS
+    	.vccd1(vccd1),	// User area 1 1.8V power
+    	.vssd1(vssd1),	// User area 1 digital ground
+  `endif 
 
-    .wbs_cyc_i(wbs_cyc_i),
-    .wbs_stb_i(wbs_stb_i),
-    .wbs_we_i(wbs_we_i),
-    .wbs_sel_i(wbs_sel_i),
-    .wbs_adr_i(wbs_adr_i),
-    .wbs_dat_i(wbs_dat_i),
-    .wbs_ack_o(wbs_ack_o),
-    .wbs_dat_o(wbs_dat_o),
+  .clk  (wb_clk_i),
+  .rst  (wb_rst_i),
+  .cnt_start  (io_in[23]),
+  .cnt_stop   (io_in[22]),
+  .cnt_rst    (io_in[21]),
+  .disp_val   (io_out[37:24]),
+  .out_en     (io_oeb[37:21])
+); 
 
-    // Logic Analyzer
-
-    .la_data_in(la_data_in),
-    .la_data_out(la_data_out),
-    .la_oenb (la_oenb),
-
-    // IO Pads
-
-    .io_in ({io_in[37:30],io_in[7:0]}),
-    .io_out({io_out[37:30],io_out[7:0]}),
-    .io_oeb({io_oeb[37:30],io_oeb[7:0]}),
-
-    // IRQ
-    .irq(user_irq)
+/*MIAI: Moving to counter_top
+user_project_wrapper_tieoffs #(
+  .NUM_INS      (UPW_NUM_INS),
+  .NUM_OUTS     (UPW_NUM_OUTS),
+  .NUM_IOS      (UPW_NUM_IOS)
+) u_upw_tieoff_0 (
+  `ifdef USE_POWER_PINS
+    	.vccd1(vccd1),	// User area 1 1.8V power
+    	.vssd1(vssd1),	// User area 1 digital ground
+  `endif
+  .out_en     (io_oeb[37:21])
 );
+*/
 
 endmodule	// user_project_wrapper
 

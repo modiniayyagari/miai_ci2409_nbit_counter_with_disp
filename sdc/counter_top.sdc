@@ -1,0 +1,91 @@
+###############################################################################
+# Created by write_sdc
+# Mon Aug  5 20:39:53 2024
+###############################################################################
+current_design counter_top
+###############################################################################
+# Timing Constraints
+###############################################################################
+create_clock -name clk -period 25.0000 [get_ports {clk}]
+set_clock_transition 0.1500 [get_clocks {clk}]
+set_clock_uncertainty 0.2500 clk
+set_propagated_clock [get_clocks {clk}]
+set_clock_latency -source -min 4.6500 [get_clocks {clk}]
+set_clock_latency -source -max 5.5700 [get_clocks {clk}]
+set_input_delay 20.0000 -clock [get_clocks {clk}] -add_delay [get_ports {cnt_rst}]
+set_input_delay 20.0000 -clock [get_clocks {clk}] -add_delay [get_ports {cnt_start}]
+set_input_delay 20.0000 -clock [get_clocks {clk}] -add_delay [get_ports {cnt_stop}]
+set_input_delay 12.5000 -clock [get_clocks {clk}] -add_delay [get_ports {rst}]
+set_output_delay 20.0000 -clock [get_clocks {clk}] -add_delay [get_ports {disp_val[0]}]
+set_output_delay 20.0000 -clock [get_clocks {clk}] -add_delay [get_ports {disp_val[10]}]
+set_output_delay 20.0000 -clock [get_clocks {clk}] -add_delay [get_ports {disp_val[11]}]
+set_output_delay 20.0000 -clock [get_clocks {clk}] -add_delay [get_ports {disp_val[12]}]
+set_output_delay 20.0000 -clock [get_clocks {clk}] -add_delay [get_ports {disp_val[13]}]
+set_output_delay 20.0000 -clock [get_clocks {clk}] -add_delay [get_ports {disp_val[1]}]
+set_output_delay 20.0000 -clock [get_clocks {clk}] -add_delay [get_ports {disp_val[2]}]
+set_output_delay 20.0000 -clock [get_clocks {clk}] -add_delay [get_ports {disp_val[3]}]
+set_output_delay 20.0000 -clock [get_clocks {clk}] -add_delay [get_ports {disp_val[4]}]
+set_output_delay 20.0000 -clock [get_clocks {clk}] -add_delay [get_ports {disp_val[5]}]
+set_output_delay 20.0000 -clock [get_clocks {clk}] -add_delay [get_ports {disp_val[6]}]
+set_output_delay 20.0000 -clock [get_clocks {clk}] -add_delay [get_ports {disp_val[7]}]
+set_output_delay 20.0000 -clock [get_clocks {clk}] -add_delay [get_ports {disp_val[8]}]
+set_output_delay 20.0000 -clock [get_clocks {clk}] -add_delay [get_ports {disp_val[9]}]
+set_output_delay 20.0000 -clock [get_clocks {clk}] -add_delay [get_ports {out_en[0]}]
+set_output_delay 20.0000 -clock [get_clocks {clk}] -add_delay [get_ports {out_en[10]}]
+set_output_delay 20.0000 -clock [get_clocks {clk}] -add_delay [get_ports {out_en[11]}]
+set_output_delay 20.0000 -clock [get_clocks {clk}] -add_delay [get_ports {out_en[12]}]
+set_output_delay 20.0000 -clock [get_clocks {clk}] -add_delay [get_ports {out_en[13]}]
+set_output_delay 20.0000 -clock [get_clocks {clk}] -add_delay [get_ports {out_en[14]}]
+set_output_delay 20.0000 -clock [get_clocks {clk}] -add_delay [get_ports {out_en[15]}]
+set_output_delay 20.0000 -clock [get_clocks {clk}] -add_delay [get_ports {out_en[16]}]
+set_output_delay 20.0000 -clock [get_clocks {clk}] -add_delay [get_ports {out_en[1]}]
+set_output_delay 20.0000 -clock [get_clocks {clk}] -add_delay [get_ports {out_en[2]}]
+set_output_delay 20.0000 -clock [get_clocks {clk}] -add_delay [get_ports {out_en[3]}]
+set_output_delay 20.0000 -clock [get_clocks {clk}] -add_delay [get_ports {out_en[4]}]
+set_output_delay 20.0000 -clock [get_clocks {clk}] -add_delay [get_ports {out_en[5]}]
+set_output_delay 20.0000 -clock [get_clocks {clk}] -add_delay [get_ports {out_en[6]}]
+set_output_delay 20.0000 -clock [get_clocks {clk}] -add_delay [get_ports {out_en[7]}]
+set_output_delay 20.0000 -clock [get_clocks {clk}] -add_delay [get_ports {out_en[8]}]
+set_output_delay 20.0000 -clock [get_clocks {clk}] -add_delay [get_ports {out_en[9]}]
+###############################################################################
+# Environment
+###############################################################################
+set_load -pin_load 0.1900 [get_ports {disp_val[13]}]
+set_load -pin_load 0.1900 [get_ports {disp_val[12]}]
+set_load -pin_load 0.1900 [get_ports {disp_val[11]}]
+set_load -pin_load 0.1900 [get_ports {disp_val[10]}]
+set_load -pin_load 0.1900 [get_ports {disp_val[9]}]
+set_load -pin_load 0.1900 [get_ports {disp_val[8]}]
+set_load -pin_load 0.1900 [get_ports {disp_val[7]}]
+set_load -pin_load 0.1900 [get_ports {disp_val[6]}]
+set_load -pin_load 0.1900 [get_ports {disp_val[5]}]
+set_load -pin_load 0.1900 [get_ports {disp_val[4]}]
+set_load -pin_load 0.1900 [get_ports {disp_val[3]}]
+set_load -pin_load 0.1900 [get_ports {disp_val[2]}]
+set_load -pin_load 0.1900 [get_ports {disp_val[1]}]
+set_load -pin_load 0.1900 [get_ports {disp_val[0]}]
+set_load -pin_load 0.1900 [get_ports {out_en[16]}]
+set_load -pin_load 0.1900 [get_ports {out_en[15]}]
+set_load -pin_load 0.1900 [get_ports {out_en[14]}]
+set_load -pin_load 0.1900 [get_ports {out_en[13]}]
+set_load -pin_load 0.1900 [get_ports {out_en[12]}]
+set_load -pin_load 0.1900 [get_ports {out_en[11]}]
+set_load -pin_load 0.1900 [get_ports {out_en[10]}]
+set_load -pin_load 0.1900 [get_ports {out_en[9]}]
+set_load -pin_load 0.1900 [get_ports {out_en[8]}]
+set_load -pin_load 0.1900 [get_ports {out_en[7]}]
+set_load -pin_load 0.1900 [get_ports {out_en[6]}]
+set_load -pin_load 0.1900 [get_ports {out_en[5]}]
+set_load -pin_load 0.1900 [get_ports {out_en[4]}]
+set_load -pin_load 0.1900 [get_ports {out_en[3]}]
+set_load -pin_load 0.1900 [get_ports {out_en[2]}]
+set_load -pin_load 0.1900 [get_ports {out_en[1]}]
+set_load -pin_load 0.1900 [get_ports {out_en[0]}]
+set_input_transition 0.6100 [get_ports {clk}]
+set_timing_derate -early 0.9500
+set_timing_derate -late 1.0500
+###############################################################################
+# Design Rules
+###############################################################################
+set_max_transition 1.0000 [current_design]
+set_max_fanout 16.0000 [current_design]

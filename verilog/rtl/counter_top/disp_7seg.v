@@ -6,7 +6,7 @@ module disp_7seg #(
    input                           clk,
    input                           rst,
    input      [(NUM_BCDS*4)-1:0]   bcd_in,
-   input                           disp_tgl,
+   //input                           disp_tgl,
    output reg [(NUM_DISP*7)-1:0]   disp_out
 );
 
@@ -42,12 +42,13 @@ always @(posedge clk or posedge rst)
 begin
     if(rst)
     begin
-        disp_out <= disp_tgl ? ~{NUM_DISP{7'b1111110}} : {NUM_DISP{7'b1111110}};         //MIAI: display -, - when is reset state.
+        disp_out <= {NUM_DISP{7'b1111110}};         //MIAI: display -, - when is reset state.
     end
     else
     begin
-        disp_out <= disp_tgl ? ~disp_out_next : disp_out_next;
+        disp_out <= disp_out_next;
     end
 end
     
 endmodule
+
